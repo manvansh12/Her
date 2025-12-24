@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Cutie ❤️</title>
+
+<!-- Handwritten Font -->
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:'Dancing Script', cursive;
+  background:#fff7fb;
+  color:#4a2c2a;
+  overflow:hidden;
+}
+
+/* Pages */
+.page{
+  min-height:100vh;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  padding:40px 20px;
+}
+.page.active{display:flex;}
+
+/* Envelope Page */
+.envelope{
+  width:360px;
+  height:230px;
+  background:#ffd1dc;
+  border-radius:14px;
+  position:relative;
+  cursor:pointer;
+  box-shadow:0 25px 50px rgba(0,0,0,0.25);
+}
+.envelope::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:#ffb3c6;
+  clip-path:polygon(0 0,50% 55%,100% 0,100% 100%,0 100%);
+}
+.envelope-label{
+  position:absolute;
+  bottom:18px;
+  width:100%;
+  text-align:center;
+  font-size:26px;
+}
+
+/* Letter Page */
+.letter-page{
+  max-width:900px;
+  background:#ffffff;
+  padding:60px;
+  border-radius:20px;
+  box-shadow:0 20px 50px rgba(0,0,0,0.15);
+  font-size:30px;
+  line-height:2;
+}
+
+/* Snow */
+.snow{
+  position:fixed;
+  top:-10px;
+  color:white;
+  font-size:14px;
+  animation:snowfall linear infinite;
+}
+@keyframes snowfall{
+  to{transform:translateY(110vh);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+  <h1 style="font-size:48px;">🎄 For My Cutie</h1>
+  <div class="envelope" onclick="openLetter()">
+    <div class="envelope-label">Click the Envelope 💌</div>
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+  <div class="letter-page">
+    My Cutie ❤️,<br><br>
+
+    Just like fishing, the most beautiful things come quietly,
+    without force — and you are the most precious catch of my life 🎣💖.<br><br>
+
+    This Christmas is incredibly special to me because it’s our
+    <strong>first Christmas together</strong>.
+    Sharing this season with you makes everything feel calmer,
+    warmer, and more meaningful.<br><br>
+
+    You bring peace to my heart, smiles to my days,
+    and love to my life in the simplest, purest way.
+    Every moment with you feels like home.<br><br>
+
+    I hope these words wrap you in the same warmth and love
+    that you give me every single day.<br><br>
+
+    <strong>Merry Christmas, my Cutie 🎄✨</strong><br><br>
+
+    Forever yours ❤️
+  </div>
+</div>
+
+<script>
+function openLetter(){
+  document.getElementById("page1").classList.remove("active");
+  document.getElementById("page2").classList.add("active");
+
+  // Snow animation
+  setInterval(()=>{
+    const s=document.createElement("div");
+    s.className="snow";
+    s.innerText="❄";
+    s.style.left=Math.random()*100+"vw";
+    s.style.animationDuration=(5+Math.random()*5)+"s";
+    s.style.opacity=Math.random();
+    document.body.appendChild(s);
+    setTimeout(()=>s.remove(),10000);
+  },200);
+}
+</script>
+
+</body>
+</html>
